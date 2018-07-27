@@ -36,7 +36,7 @@ bigquery
     .query(options)
     .then(results => {
       rows = results[0];
-response.send(JSON.stringify(rows));
+response.send(JSON.stringify({'answer':rows}));
       //console.log('Rows:');
       //rows.forEach(row => console.log(row));
     })
