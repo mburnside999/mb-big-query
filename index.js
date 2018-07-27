@@ -32,11 +32,14 @@ app.get('/bigquery', function(request, response) {
 
 var rows;
 
+
 bigquery
     .query(options)
     .then(results => {
-      rows = results[0];
-response.send(JSON.stringify({'answer':rows}));
+      rows=results[0][0];
+      console.log(JSON.stringify(rows));
+
+response.send(JSON.stringify(rows));
       //console.log('Rows:');
       //rows.forEach(row => console.log(row));
     })
