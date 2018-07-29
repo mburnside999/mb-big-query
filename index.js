@@ -24,31 +24,24 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
-
   response.send('Hello World!')
 })
 
 app.get('/bigquery', function(request, response) {
 
-var rows;
-
-
+var row;
 bigquery
     .query(options)
     .then(results => {
-      rows=results[0][0];
-      console.log(JSON.stringify(rows));
-
-response.send(JSON.stringify(rows));
-      //console.log('Rows:');
-      //rows.forEach(row => console.log(row));
+      row=results[0][0];
+      console.log('Biq query returned: '+JSON.stringify(row));
+      response.send(JSON.stringify(row));
     })
     .catch(err => {
       console.error('ERROR:', err);
+      response.send(err);
     });
 
-	
-  //response.send(rows);
 })
 
 
