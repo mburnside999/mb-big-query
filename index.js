@@ -56,9 +56,9 @@ app.get('/bigquery2', function(request, response) {
   bigquery
       .query(options2)
       .then(results => {
-        row=results[0][0];
-        console.log('Biq query returned: '+JSON.stringify(row));
-        response.send(JSON.stringify(row));
+        row=results;
+        console.log('Biq query returned: '+JSON.stringify(results));
+        response.send(JSON.stringify(results));
       })
       .catch(err => {
         console.error('ERROR:', err);
