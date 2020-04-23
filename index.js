@@ -10,7 +10,9 @@ const bigquery = new BigQuery({
   projectId: projectId,
 });
 
-const sqlQuery = "select count(*) commit_count from `bigquery-public-data.github_repos.commits`";
+//const sqlQuery = "SELECT count(*) FROM [bigquery-public-data:github_repos.files] LIMIT 1000";
+const sqlQuery = "SELECT count(*) file_count FROM [bigquery-public-data:github_repos.files]";
+
 const options = {
     query: sqlQuery,
     timeoutMs: 10000, // Time out after 10 seconds.
