@@ -18,7 +18,7 @@ const options = {
     useLegacySql: false, // Use standard SQL syntax for queries.
   };
 
-const sqlQuery2="SELECT COUNT(*) commit_count, JSON_EXTRACT_SCALAR(payload, '$.pull_request.base.repo.language') lang FROM `githubarchive.month.201801` WHERE JSON_EXTRACT_SCALAR(payload, '$.pull_request.base.repo.language')IS NOT NULL GROUP BY 2 ORDER BY 1 DESC LIMIT 10"
+const sqlQuery2="SELECT COUNT(*) commit_count, JSON_EXTRACT_SCALAR(payload, '$.pull_request.base.repo.language') lang FROM `githubarchive.month.201801` WHERE JSON_EXTRACT_SCALAR(payload, '$.pull_request.base.repo.language')IS NOT NULL GROUP BY 2 ORDER BY 1 DESC LIMIT 1"
 const options2 = {
   query: sqlQuery2,
   timeoutMs: 10000, // Time out after 10 seconds.
