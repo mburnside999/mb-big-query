@@ -1,4 +1,4 @@
-#
+
 var express = require('express');
 
 const BigQuery = require('@google-cloud/bigquery');
