@@ -11,7 +11,7 @@ const bigquery = new BigQuery({
   projectId: projectId,
 });
 
-const sqlQuery = "select count(*) file_count from `bigquery-public-data.github_repos.files`";
+const sqlQuery = "select count(*) file_count from `bigquery-public-data.github_repos.files` where ref != 'X'";
 
 const options = {
     query: sqlQuery,
