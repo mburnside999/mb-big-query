@@ -86,7 +86,9 @@ app.get("/bigquery3", function (request, response) {
       console.log("Biq query returned: " + JSON.stringify(results[0]));
       myresults = { data: results };
       let strresult = JSON.stringify(myresults);
-      response.send(strresult.replaceAll("_", " "));
+      const searchRegExp = /\_/g;
+      const replaceWith = " ";
+      response.send(strresult);
     })
     .catch((err) => {
       console.error("ERROR:", err);
