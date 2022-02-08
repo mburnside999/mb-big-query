@@ -77,6 +77,9 @@ app.get("/bigquery2", function (request, response) {
 });
 
 app.get("/bigquery3", function (request, response) {
+  const formatYmd = (date) => date.toISOString().slice(0, 10);
+  console.log(formatYmd(new Date()));
+
   var myresults = {};
   var rows;
   bigquery
