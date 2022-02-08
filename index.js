@@ -28,7 +28,7 @@ const options2 = {
 };
 
 const sqlQuery3 =
-  "SELECT title, sum(views) v FROM `bigquery-public-data.wikipedia.pageviews_2022` WHERE DATE(datehour) = '2022-02-07' and wiki like 'en%' group by title order  by v desc   LIMIT 1000";
+  "SELECT title, sum(views) v FROM `bigquery-public-data.wikipedia.pageviews_2022` WHERE DATE(datehour) = '2022-02-07' and wiki like 'en%' group by title order  by v desc LIMIT 20 ";
 const options3 = {
   query: sqlQuery3,
   timeoutMs: 10000, // Time out after 10 seconds.
