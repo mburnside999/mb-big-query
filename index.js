@@ -27,8 +27,16 @@ const options2 = {
   useLegacySql: false, // Use standard SQL syntax for queries.
 };
 
-const sqlQuery3 =
-  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2022` WHERE DATE(datehour) = '2022-02-08' and title not in ('-','Main_Page','Special:Search') and wiki like 'en%' group by title order  by views desc LIMIT 20 ";
+const formatYmd = (date) => date.toISOString().slice(0, 10);
+console.log(formatYmd(new Date()));
+
+let sqlQuery3 =
+  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2022` WHERE DATE(datehour) = '";
+sqlQuery3 += "'" + formatYmd(new Date()) + "'";
+sqlQuery +=
+  "' and title not in ('-','Main_Page','Special:Search') and wiki like 'en%' group by title order  by views desc LIMIT 20 ";
+console.log(sqlQuery3);
+
 const options3 = {
   query: sqlQuery3,
   timeoutMs: 10000, // Time out after 10 seconds.
@@ -77,9 +85,6 @@ app.get("/bigquery2", function (request, response) {
 });
 
 app.get("/bigquery3", function (request, response) {
-  const formatYmd = (date) => date.toISOString().slice(0, 10);
-  console.log(formatYmd(new Date()));
-
   var myresults = {};
   var rows;
   bigquery
