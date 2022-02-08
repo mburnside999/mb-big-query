@@ -85,7 +85,8 @@ app.get("/bigquery3", function (request, response) {
       row = results;
       console.log("Biq query returned: " + JSON.stringify(results[0]));
       myresults = { data: results };
-      response.send(JSON.stringify(myresults));
+      let strresult = JSON.stringify(myresults);
+      response.send(strresult.replaceAll("_", " "));
     })
     .catch((err) => {
       console.error("ERROR:", err);
