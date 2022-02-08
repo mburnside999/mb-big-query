@@ -84,7 +84,7 @@ app.get("/bigquery3", function (request, response) {
     .then((results) => {
       rows = results[0];
       console.log("Biq query returned: " + JSON.stringify(rows));
-      myresults = { data: rows };
+      //myresults = { data: rows };
       let strresult = JSON.stringify(rows);
       const searchRegExp = /_/g;
       const replaceWith = " ";
