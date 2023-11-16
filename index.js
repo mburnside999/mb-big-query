@@ -32,8 +32,9 @@ const formatYmd = (date) => date.toISOString().slice(0, 10);
 console.log(formatYmd(new Date()));
 
 let sqlQuery3 =
-  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2022` WHERE DATE(datehour) = '";
+  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2023` WHERE DATE(datehour) = '";
 sqlQuery3 += formatYmd(new Date());
+
 sqlQuery3 +=
   "' and title not in ('-','Main_Page','Special:Search') and wiki like 'en%' group by title order  by views desc LIMIT 20 ";
 console.log(sqlQuery3);
