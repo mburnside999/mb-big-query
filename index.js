@@ -38,6 +38,7 @@ sqlQuery3 += formatYmd(new Date());
 sqlQuery3 +=
   "' and title not in ('-','Main_Page','Special:Search') and wiki like 'en%' group by title order  by views desc LIMIT 20 ";
 console.log(sqlQuery3);
+console.log('Wikipedia query: '+sqlQuery3)
 
 const options3 = {
   query: sqlQuery3,
