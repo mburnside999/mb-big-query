@@ -32,7 +32,7 @@ const formatYmd = (date) => date.toISOString().slice(0, 10);
 console.log(formatYmd(new Date()));
 
 let sqlQuery3 =
-  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2023` WHERE DATE(datehour) = '";
+  "SELECT title, sum(views) views FROM `bigquery-public-data.wikipedia.pageviews_2024` WHERE DATE(datehour) = '";
 sqlQuery3 += formatYmd(new Date());
 
 sqlQuery3 +=
@@ -94,8 +94,8 @@ app.get("/bigquery3", function (request, response) {
     .then((results) => {
       rows = results[0];
       console.log("Biq query returned: " + JSON.stringify(rows));
-      //myresults = { data: rows };
-      let strresult = JSON.stringify(rows);
+      myresults = { data: rows };
+      let strresult = JSON.stringify(myresults);
       const searchRegExp = /_/g;
       const replaceWith = " ";
       strresult = strresult.replace(searchRegExp, replaceWith);
